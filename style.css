@@ -1,55 +1,227 @@
-/*
-  CSS File
-*/
 
-/*
- VARIABLES
-*/
 :root {
-  /* Core colours */
-  /* https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
-  --colour-amaranth: #e63946;
-  --colour-peppermint: #f1faee;
-  --colour-aquaisland: #a8dadc;
-  --colour-wedgewood: #457b9d;
-  --colour-cello: #1d3557;
+    /* Core colours /
+    / https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
+    --colour-amaranth: #e63946;
+    --colour-peppermint: #f1faee;
+    --colour-aquaisland: #a8dadc;
+    --colour-wedgewood: #457b9d;
+    --colour-cello: #1d3557;
 
-  /* Header configuration */
-  --header-heading-colour: var(--colour-peppermint);
+    /* Header configuration */
+    --header-heading-colour: var(--colour-peppermint);
 
-  /* Body configuration */
-  --body-default-colour: var(--colour-cello);
-  --body-background-colour: var(--colour-peppermint);
-}
+    /* Body configuration */
+    --body-default-colour: var(--colour-cello);
+    --body-background-colour: var(--colour-peppermint);
+  }
 
-/*
-  PAGE / BODY
-*/
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--body-default-colour);
-  background-color: var(--body-background-colour);
-}
+  /*
+    PAGE / BODY
+  */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--body-default-colour);
+    background-color: var(--body-background-colour);
+  }
 
-main {
-  min-height: 100vh;
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+/* General style for the sidebar */
+  .sidebar {
+    width: 250px;
+    height: 100%;
+    background: #ABAFEB;
+  }
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  /* General style for the header */
+  .header {
+    width: 100%;
+    height: 100vh;
+    background: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0px;
+  }
 
-/*
-  Screen reader text utility class
-*/
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
+  /* General style for the logo */
+  .logo {
+    display: block;
+    margin-bottom: 120px;
+  }
+
+  .logo-image {
+    width: 250px;
+  }
+
+  /* Style for the links in the sidebar */
+  .sidebar-links {
+    list-style: none;
+    position: relative;
+    font-family: "indivisible", sans-serif;
+  }
+
+  .sidebar-links li {
+    text-decoration: none;
+    padding: 0px 10px;
+  }
+
+  .sidebar-links li a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+  }
+
+  /* Style for the h2 text in the sidebar (Categories and All Lists) */
+  .sidebar-links li h2 {
+    color: #131313;
+    text-decoration: none;
+    padding: 0px;
+  }
+
+    /* Style for the h3 text in the sidebar (Not yet started, Working on it, and Completed) */
+  .sidebar-links li h3 {
+    color: #6e6e6e;
+    padding: 10px 0px;
+  }
+
+  .sidebar-links li a p {
+    text-decoration: none;
+  }
+
+  .sidebar-links li a p:hover {
+    color: white;
+    transition: 0.3s;
+  }
+
+  .underline {
+    display: inline-block;
+    position: relative;
+    margin-left: 10px;
+  }
+
+  .underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .add-list {
+    color: black;
+    font-weight: 500;
+    font-size: 60px;
+    margin-left: 185px;
+    margin-top: -20px;
+  }
+
+  .add-list:hover {
+    color: white;
+    transition: 0.3s;
+  }
+
+  .logo-icon {
+    display: none;
+    width: 110px;
+  }
+
+
+
+
+
+
+  /* Resizing for mobile screens */
+  @media only screen and (max-width: 600px) {
+    .sidebar {
+      width: 110px;
+    }
+
+    .logo-icon {
+      display: block;
+    }
+
+    .logo-image {
+      display: none;
+    }
+
+    .sidebar-links li a {
+      justify-content: center;
+    }
+
+    .sidebar-links li a p {
+       display: none;
+    }
+
+    .sidebar-links li a h2 {
+      display: none
+    }
+
+    .sidebar-links li a h3 {
+      display: none
+    }
+    
+    .sidebar-links li a img {
+      margin-right: 0;
+    }
+  }
+
+
+
+
+
+
+
+
+  .todoDeleteButton {
+    margin-left: 2rem;
+    background-color: red;
+  }
+
+  .done {
+    background-color: #457b9d;
+  }
+
+  main {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns:
+    1fr 1fr
+    minmax(10px, 1fr) 3fr
+    repeat(5, 1fr)
+    50px auto 100px 1fr;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /*
+    Screen reader text utility class
+  */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
