@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
     <!-- Page title -->
     <title>DOALIST</title>
     <meta charset="UTF-8" />
@@ -15,18 +16,18 @@
     <link rel="stylesheet" href="https://use.typekit.net/xse6ume.css">
 
     <!-- CSS file -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- Set the Favicon  -->
-    <link rel="icon" href="./images/favicon/rocket.svg" type="image/svg+xml" />
+    <link rel="icon" href="images/favicon.png" type="image/svg+xml" />
+
+    <!-- Link to FontAwesome for icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
   </head>
   <body>
-    <!--
-
-      ADD YOUR ASSIGNMENT 03 CODE
-
-    -->
-    <div class="header">
+    <section class="content">
+    <!-- Sidebar -->
       <div class="sidebar">
         <a href="#" class="icon">
           <!-- Add image for the icon here -->
@@ -35,43 +36,64 @@
         </a>
         <ul class="sidebar-links">
           <li><h2><br>Categories</h2></li>
-          <li><a href=#><img src="images/calendar.png" alt="calendar image" id="calendar" width="30px"><p class="underline" style="font-weight: bold">Daily</p></a></li>
-          <li><a href=#><img src="images/star.png" alt="star image" id="star" width="30px"><p class="underline" style="font-weight: bold">Priority</p></a></li>
+          <li><a href=#><p class="underline">Daily</p></a></li>
+          <li><a href=#><p class="underline">Priority</p></a></li>
 
           <li><h2><br>All Lists</h2></li>
           <li><h3>Not yet started</h3></li>
-          <li><a href=#><img src="images/pink circle.png" alt="pink circle image" id="pink circle" width="30px"><p class="underline">Books to read</p></a></li>
+          <!-- <li><input type="text" id="secondInput" /></li> -->
+          <li><a href=#><p class="underline" id="secondInput">Enter list name here</p></a></li>
 
           <li><h3>Working on it</h3></li>
-          <li><a href=#><img src="images/blue circle.png" alt="blue circle image" id="blue circle" width="30px"><p class="underline">A creative list name</p></a></li>
+          <li><a href=#><p class="underline">Enter list name here</p></a></li>
 
           <li><h3>Completed</h3></li>
-          <li><a href=#><img src="images/purple circle.png" alt="purple circle image" id="purple circle" width="30px"><p class="underline">A secret third thing</p></a></li>
+          <li><a href=#><p class="underline">Enter list name here</p></a></li>
 
-          <li><a href=#><h2 class="add-list">+</h2></a></li>
+          <!-- <li><a href=#><h2 class="add-list">+</h2></a></li> -->
+          <form class="new-list-form">
+            <button class="btn create">+</button>
+            <input 
+              type="text"
+              class="new-list-input"
+              placeholder="Create new list"
+            />
+            
+          </form>
         </ul>
       </div>
-    </div>
 
     <main>
-      <section>
-        <h2>List of Todos</h2>
-
-        <ul class="todolist1"></ul>
-      </section>
-
-      <form class="form1">
-        <!-- <label class="sr-only" for="todo-item">To do description:</label> -->
-        <input name="todo-item" id="todo-item" type="text" required />
-        <input type="submit" value="Add todo" />
-      </form>
-
+      <!-- <h1 class="list-title" contenteditable="true">List Title</h1> -->
+      <input type="text" id="firstInput" oninput="updateSecondInput()" class="list-title" placeholder="Enter list title here"/>
       
+      <div class="list">
+        <div class="list-head">
+          <input type="text" class="entered-todo" placeholder="What's next?">
+          <button class="add-todo" onclick="addButton()">Add</button>
+        </div>
 
-      <!-- <div id="app"></div> -->
+        <div class="tasks">
+          <!-- <div class="item">
+            <div class="checkbox-item">
+            <input type="checkbox" />
+            <label class="checkmark" for="checkbox">new item here</label>
+            </div>
+            <div class="item-button">
+              <div class="edit-icon">
+                <i class="fas fa-solid fa-pen"></i>
+              </div>
+              <div class="delete-icon">
+                <i class="fas fa-solid fa-trash"></i>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
     </main>
+  </section>
 
-    <!-- This is where we add our awesome JavaScript code -->
-    <script src="./main.js"></script>
+      <!-- This is where we add our awesome JavaScript code -->
+      <script src="main.js" defer></script>
   </body>
 </html>
