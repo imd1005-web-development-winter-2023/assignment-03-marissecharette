@@ -1,92 +1,74 @@
-const form = document.querySelector(".form1");
-const todoTextFromForm = document.querySelector("#todo-item");
+const input = document.querySelector('.entered.todo');
+const addButton = document.querySelector('.add-todo');
+const tasks = document.querySelector('.tasks');
+const form = document.querySelector('form');
 
-const todoList = document.querySelector(".todolist1");
-// const todos = ["chips"];
+// Prevent form submission when clicking on the "Add" button. NOT WORKING?
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addTodo();
+})
 
-const todos = [];
-
-function drawToDoList() {
-  // Clear all of the entries in the list
-  while (todoList.firstChild) {
-    todoList.removeChild(todoList.firstChild);
+// Prevent user from submitting if there is no text submitted in the todo field. NOT WORKING..?
+addButton.addEventListener('keyup', () => {
+  if (input.value.trim() !== '') {
+    addButton.classList.add('active')
   }
-
-  for (let i = 0; i < todos.length; i++) {
-    const listItem = document.createElement("li");
-    listItem.textContent = todos[i].text;
-
-    if (todos[i].isDone === true) {
-      listItem.classList.add("done");
-    }
-
-    const todoDeleteButton = document.createElement("button");
-    todoDeleteButton.textContent = "Delete";
-    todoDeleteButton.classList.add("todoDeleteButton");
-
-    todoDeleteButton.dataset.index = i;
-
-    todoDeleteButton.addEventListener("click", deleteTodo);
-
-    const todoDoneButton = document.createElement("button");
-
-    if (todos[i].isDone === true) {
-      todoDoneButton.textContent = "UnDone";
-    } else {
-      todoDoneButton.textContent = "Done";
-    }
-
-    todoDoneButton.dataset.index = i;
-
-    todoDoneButton.addEventListener("click", doneTodo);
-
-    listItem.appendChild(todoDoneButton);
-    listItem.appendChild(todoDeleteButton);
-
-    todoList.appendChild(listItem);
+  else {
+    addButton.classList.remove('active')
   }
+})
+
+// Add new todo to list. NOT WORKINGGGGG
+addButton.addEventListener('click', () => {
+  if(input.value.trim() !== '') {
+    
+    let newItem = document.createElement('div');
+    newItem.classList.add('item');
+    newItem.innerHTML = `
+    <div class="checkbox-item">
+    <input type="checkbox" id="checkbox-item" />
+    <label class="checkmark" for="checkbox-item">${input.value}</label>
+    </div>
+    <div class="item-button">
+      <div class="edit-icon">
+        <i class="fas fa-solid fa-pen"></i>
+      </div>
+      <div class="delete-icon">
+        <i class="fas fa-solid fa-trash"></i>
+      </div>
+    </div>
+    `
+    tasks.appendChild(newItem);
+    input.value = '';
+  }
+  else {
+    alert("Please enter a task.");
+  }
+})
+
+// Remove todo from list
+tasks.addEventListener('click', (e) => {
+  if (e.target.classList.contains('fa-solid')) {
+    e.target.parentElement.parentElement.remove();
+  }
+})
+
+// Mark item as completed
+tasks.addEventListener('click', (e) => {
+  if (e.target.classList.contains('fa-pen')) {
+    e.target.parentElement.parentElement.classList.toggle('completed');
+  }
+})
+
+
+
+
+// Whenever a list name is changed in the main content section, this change is reflected in the sidebar.
+// list-title = firstInput
+// Underlined sidebar text = secondInput
+function updateSecondInput() {
+  var firstInput = document.getElementById("firstInput");
+  var secondInput = document.getElementById("secondInput");
+  secondInput.innerHTML = firstInput.value;
 }
-
-function doneTodo(event) {
-  console.log("Marked as done");
-
-  todoDeleteIndex = event.target.dataset.index;
-
-  console.log("INDEX: ", todoDeleteIndex);
-
-  todos[todoDeleteIndex].isDone = !todos[todoDeleteIndex].isDone;
-
-  console.log(todos);
-
-  drawToDoList();
-}
-
-function deleteTodo(event) {
-  console.log("Delete button index", event.target.dataset.index);
-
-  todoDeleteIndex = event.target.dataset.index;
-
-  todos.splice(todoDeleteIndex, 1);
-
-  drawToDoList();
-} 
-function addTodo(event) {
-  event.preventDefault();
-
-  todoTextFromForm.value;
-
-  // todos.push(todoTextFromForm.value);
-
-  todos.push({
-    text: todoTextFromForm.value,
-    isDone: false,
-  });
-
-  console.log(todos);
-
-  form.reset();
-
-  drawToDoList();
-}
-
-form.addEventListener("submit", addTodo);
