@@ -58,38 +58,46 @@
               class="new-list-input"
               placeholder="Create new list"
             />
-            
           </form>
         </ul>
       </div>
 
-    <main>
-      <!-- <h1 class="list-title" contenteditable="true">List Title</h1> -->
-      <input type="text" id="firstInput" oninput="updateSecondInput()" class="list-title" placeholder="Enter list title here"/>
-      
-      <div class="list">
-        <div class="list-head">
-          <input type="text" class="entered-todo" placeholder="What's next?">
-          <button class="add-todo" onclick="addButton()">Add</button>
-        </div>
+      <main>
+        <input type="text" id="firstInput" oninput="updateSecondInput()" class="list-title" placeholder="Enter list title here"/>
 
-        <div class="tasks">
-          <!-- <div class="item">
-            <div class="checkbox-item">
-            <label class="checkmark" for="checkbox">new item here</label>
-            </div>
-            <div class="item-button">
-              <div class="edit-icon">
-                <i class="fas fa-solid fa-pen"></i>
+        <section class="full-list">
+        <form class="list">
+          <label for="todo-name"></label>
+          <input
+          type="text"
+          name="item"
+          class="text-todo"
+          id="todo-name"
+          placeholder="What's next?"
+          required
+          />
+          <input type="submit" class="add-button" value="Add Todo" />
+        </form>
+
+        <ul class="todo-items">
+          <li>
+            <div class="item">
+              <div class="checkbox-item">
+              <label class="checkmark" for="checkbox"></label>
               </div>
-              <div class="delete-icon">
-                <i class="fas fa-solid fa-trash"></i>
+              <div class="item-button">
+                <div class="edit-icon">
+                  <i class="fas fa-solid fa-pen"></i>
+                </div>
+                <div class="delete-icon">
+                  <i class="fas fa-solid fa-trash"></i>
+                </div>
               </div>
             </div>
-          </div> -->
-        </div>
-      </div>
-    </main>
+          </li>
+        </ul>
+      </section>
+      </main>
   </section>
 
       <!-- This is where we add our awesome JavaScript code -->
