@@ -34,36 +34,27 @@
           <img src="images/logo.png" class="logo-image">
           <img src="images/logo icon.png" class="logo-icon">
         </a>
-        <ul class="sidebar-links">
-          <li><h2><br>Categories</h2></li>
-          <li><a href=#><p class="underline">Daily</p></a></li>
-          <li><a href=#><p class="underline">Priority</p></a></li>
 
-          <li><h2><br>All Lists</h2></li>
-          <li><h3>Not yet started</h3></li>
-          <!-- <li><input type="text" id="secondInput" /></li> -->
-          <li><a href=#><p class="underline" id="secondInput">Enter list name here</p></a></li>
+        <div class="all-lists-header"><h2><br>All Lists</h2></div>
 
-          <li><h3>Working on it</h3></li>
-          <li><a href=#><p class="underline">Enter list name here</p></a></li>
+        <ul class="sidebar-links" data-lists></ul>
 
-          <li><h3>Completed</h3></li>
-          <li><a href=#><p class="underline">Enter list name here</p></a></li>
-
-          <!-- <li><a href=#><h2 class="add-list">+</h2></a></li> -->
-          <form class="new-list-form">
-            <button class="btn create">+</button>
+          <!-- <li class="list-names"><a href=#><p class="underline" id="secondInput">Enter list name here</p></a></li> -->
+          
+          <form action="" data-new-list-form>
             <input 
               type="text"
-              class="new-list-input"
+              class="new-list"
+              data-new-list-input
               placeholder="Create new list"
             />
+            <button class="btn-create">+</button>
           </form>
-        </ul>
       </div>
 
       <main>
-        <input type="text" id="firstInput" oninput="updateSecondInput()" class="list-title" placeholder="Enter list title here"/>
+        <!-- Allows user to name their list with a maximum 21 character limit -->
+        <input type="text" id="firstInput" oninput="updateSecondInput()" data-list-title class="list-title" maxlength="21" placeholder="Enter list title here"/>
 
         <section class="full-list">
         <form class="list">
@@ -73,6 +64,7 @@
           name="item"
           class="text-todo"
           id="todo-name"
+          maxlength="70"
           placeholder="What's next?"
           required
           />
@@ -81,10 +73,6 @@
 
         <ul class="todo-items">
           <li>
-            <div class="item">
-              <div class="checkbox-item">
-              <label class="checkmark" for="checkbox"></label>
-              </div>
               <!-- <div class="item-button">
                 <div class="edit-icon">
                   <button type=""
@@ -94,7 +82,6 @@
                   <i class="fas fa-solid fa-trash"></i>
                 </div>
               </div> -->
-            </div>
           </li>
         </ul>
       </section>
