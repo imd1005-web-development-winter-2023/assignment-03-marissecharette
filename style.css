@@ -34,6 +34,7 @@
     font-style: normal;
   }
   
+  /* Style for the header */
   .header {
     display: flex;
     align-items: center;
@@ -58,6 +59,7 @@
     word-break: break-word;
   }
 
+  /* Style for the header h2 */
   .cool-list-title h2 {
     color: var(--dark-text-colour);
     font-size: 30px;
@@ -65,6 +67,7 @@
     position: absolute;
   }
 
+  /* Style for the header p */
   .cool-list-title p {
     color: var(--dark-text-colour);
     font-size: 30px;
@@ -72,16 +75,19 @@
     position: absolute;
   }
 
+  /* Hover style for the header p */
   .cool-list-title p:hover {
     color: var(--colour-darkerpink);
     transition: 0.3s;
   }
 
+  /* Style for the underline effect on the header p */
   .underline {
     display: flex;
     position: relative;
   }
 
+  /* Animation for the underline effect on the header p */
   .underline::after {
     content: '';
     position: absolute;
@@ -100,21 +106,24 @@
     transform-origin: bottom left;
   }
 
+  /* Style for the todo list form */
   form {
     display: flex;
     padding-top: 20px;
   }
 
-
+  /* Style for main, sets position and padding */
   main {
-    margin-top: 200px;
+    margin-top: 160px;
+    padding-bottom: 40px;
   }
 
+  /* Style for the list title placeholder, centers the text */
   .list-title::placeholder {
     text-align: center;
  }
 
-
+ /* Style for the list title */
   .list-title {
     font-family: "indivisible", sans-serif;
     font-weight: 700;
@@ -136,6 +145,7 @@
     color: var(--colour-darkpink);
   }
 
+  /* Style for the list */
   .full-list {
     width: 850px;
     padding-left: 20px;
@@ -146,6 +156,7 @@
     background-color: white;
   }
 
+  /* Style for the todo text */
   .text-todo {
     display: flex;
     justify-content: space-between;
@@ -158,6 +169,7 @@
     box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
   }
 
+  /* Style for the Add button */
   .add-button {
     width: 30%;
     background-color: var(--colour-pink);
@@ -169,23 +181,20 @@
     box-shadow: inset 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
   }
 
+  /* Hover style for the Add button */
   .add-button:hover {
     background-color: var(--colour-darkpink);
     transition: 0.3s;
   }
 
-  .tasks {
-    width: 100%;
-    margin-top: 30px;
-  }
-
-
+  /* Style for todo-items */
   main ul.todo-items {
     list-style-type: none;
     margin: 0px;
     padding: 0px;
   }
   
+  /* Style for list todo-items */
   main ul.todo-items li {
     list-style: none;
     background: linear-gradient(to right, var(--leftgradient-colour), var(--rightgradient-colour));
@@ -202,6 +211,7 @@
     word-break: break-word;
   }
 
+  /* Fade-out animation that plays when an item is removed */
   @keyframes remove-item-annimation {
     0% {opacity: 1;}
     100% {opacity: 0;} 
@@ -211,26 +221,28 @@
     animation: remove-item-annimation 0.3s linear;
   }
 
+  /* Style for the delete button, removes background and outline so only the icon appears */
   .delete-button {
     background: none;
     border: none;
     border-radius: 5px;
   }
 
+  /* Style for the delete icon */
   .delete-icon i {
     color: var(--dark-text-colour);
     font-size: 20px;
     transition: transform 0.3s, opacity 400ms;
   }
 
-  /* When hovered over, the Delete icon increases in size and turns red */
+  /* Hover style for the delete icon, it increases in size and turns red */
   .delete-icon i:hover {
     color: rgb(167, 34, 34);
     transform: scale(1.3);
     transition: transform 0.3s, opacity 400ms;
   }
 
-  /* Style for the Incomplete button */
+  /* Style for the incomplete button */
   .incomplete {
     background-color: var(--colour-lightpink);
     text-decoration: none;
@@ -242,7 +254,7 @@
     transition: transform 0.3s, opacity 400ms;
   }
 
-  /* Style for the Incomplete button when hovered over */
+  /* Hover style for the incomplete button */
   .incomplete:hover {
     background-color: var(--colour-darkpink);
     text-decoration: none;
@@ -250,7 +262,7 @@
     transition: transform 0.3s, opacity 400ms;
   }
 
-  /* Style for the Complete button */
+  /* Style for the complete button */
   .complete {
     background-color: var(--colour-lightpink);
     text-decoration: none;
@@ -262,7 +274,7 @@
     transition: transform 0.3s, opacity 400ms;
   }
 
-  /* Style for the Complete button when hovered over */
+  /* Hover style for the complete button */
   .complete:hover {
     background-color: var(--colour-darkpink);
     text-decoration: none;
@@ -280,7 +292,6 @@
   }
 
   /* Screen reader text utility class */
-  
   .sr-only {
     position: absolute;
     width: 1px;
