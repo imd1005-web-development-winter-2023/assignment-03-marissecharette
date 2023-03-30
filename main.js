@@ -4,9 +4,6 @@ const todoList = document.querySelector(".todo-items");
 const todoForm = document.querySelector(".list");
 const toName = document.querySelector("#todo-name");
 const listsContainer = document.querySelector('[data-lists]')
-const newListForm = document.querySelector('[data-new-list-form')
-const newListInput = document.querySelector('[data-new-list-input')
-const listTitleElement = document.querySelector('[data-list-title]')
 
 // Prevents default form submission
 function addTodoItem(e) {
@@ -33,9 +30,14 @@ function renderList(items, itemsList) {
     listItem.textContent = items[i].name;
 
     // COMPLETE BUTTON
-    // Marks items as complete/incomplete
+    // Marks items as complete/incomplete.
     if (todos[i].isDone === true) {
       listItem.classList.add("done");
+      todoList.classList.add("done");
+    }
+    // If item is not marked as completed, remove the class name "done". This prevents list items from remaining strikethrough.
+    else {
+      todoList.classList.remove("done");
     }
 
     // Creates the button used to check if an item has been completed or not.
@@ -77,10 +79,6 @@ function renderList(items, itemsList) {
     
     listItem.appendChild(deleteButton); // Appends the button
 
-    if (i === items.length - 1) {
-      listItem.classList.add("new-item-annimate");
-    }
-
     itemsList.appendChild(listItem);
   }
 }
@@ -103,49 +101,9 @@ todoForm.addEventListener("submit", addTodoItem);
 
 renderList(todos, todoList);
 
-let lists = [];
-
-// Prevents default form submission
-newListForm.addEventListener('submit', e => {
-  e.preventDefault()
-// Prevents users from submitting empty text as a list
-  const listName = newListInput.value
-  if (listName == null || listName === '') return
-  const list = createList(listName)
-  newListInput.value = null
-  lists.push(list)
-  render()
-})
-
-// Prevents users from submitting empty text as a list
-function createList(name) {
-  return { id: Date.now().toString(), name: name, tasks: [] }
-}
-
-// Renders Create New List
-function render() {
-  clearElement(listsContainer)
-
-  lists.forEach (list => {
-    const listElement = document.createElement("li")
-    listElement.dataset.listId = list.id
-    listElement.classList.add("list-names")
-    listElement.classList.add("underline")
-    listElement.classList.add("secondInput")
-    listElement.innerText = list.name
-    listsContainer.appendChild(listElement)
-  })
-}
-
-// Clears any previous lists in the sidebar
-function clearElement(element) {
-  while (element.firstChild)
-  element.removeChild(element.firstChild)
-}
-
-// Whenever a list name is changed in the main content section, this change is reflected in the sidebar.
+// Whenever a list name is changed in the main content section, this change is reflected in the header.
 // list-title = firstInput
-// Underlined sidebar text = secondInput
+// Underlined header text = secondInput
 function updateSecondInput() {
   var firstInput = document.getElementById("firstInput");
   var secondInput = document.getElementById("secondInput");
