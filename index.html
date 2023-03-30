@@ -27,34 +27,25 @@
   </head>
   <body>
     <section class="content">
-    <!-- Sidebar -->
-      <div class="sidebar">
+    <!-- Header -->
+      <div class="header">
+
         <a href="#" class="icon">
-          <!-- Add image for the icon here -->
-          <img src="images/logo.png" class="logo-image">
-          <img src="images/logo icon.png" class="logo-icon">
+          <!-- Icon imagee -->
+          <img src="images/logo.png" class="logo-image" width="300px">
         </a>
 
-        <div class="all-lists-header"><h2><br>All Lists</h2></div>
+        <div class="cool-list-title">
+          <h2>Your cool list title is: </h2>
+          <p class="underline" id="secondInput">Enter list title here</p>
 
-        <ul class="sidebar-links" data-lists></ul>
+        </div>
 
-          <!-- <li class="list-names"><a href=#><p class="underline" id="secondInput">Enter list name here</p></a></li> -->
-          
-          <form action="" data-new-list-form>
-            <input 
-              type="text"
-              class="new-list"
-              data-new-list-input
-              placeholder="Create new list"
-            />
-            <button class="btn-create">+</button>
-          </form>
       </div>
 
       <main>
         <!-- Allows user to name their list with a maximum 21 character limit -->
-        <input type="text" id="firstInput" oninput="updateSecondInput()" data-list-title class="list-title" maxlength="21" placeholder="Enter list title here"/>
+        <input type="text" id="firstInput" oninput="updateSecondInput()" data-list-title class="list-title" maxlength="65" placeholder="Enter list title here"/>
 
         <section class="full-list">
         <form class="list">
@@ -64,7 +55,6 @@
           name="item"
           class="text-todo"
           id="todo-name"
-          maxlength="70"
           placeholder="What's next?"
           required
           />
@@ -72,23 +62,13 @@
         </form>
 
         <ul class="todo-items">
-          <li>
-              <!-- <div class="item-button">
-                <div class="edit-icon">
-                  <button type=""
-                  <i class="fas fa-solid fa-pen"></i>
-                </div>
-                <div class="delete-icon">
-                  <i class="fas fa-solid fa-trash"></i>
-                </div>
-              </div> -->
-          </li>
+          <li></li>
         </ul>
       </section>
       </main>
   </section>
 
-      <!-- This is where we add our awesome JavaScript code -->
+      <!-- Link to JavaScript code -->
       <script src="main.js" defer></script>
   </body>
 </html>
