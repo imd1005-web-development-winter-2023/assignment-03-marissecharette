@@ -53,7 +53,7 @@ function renderList(items, itemsList) {
       checkmarkButton.classList.add("complete");
     }
 
-    checkmarkButton.dataset.index = i;
+    checkmarkButton.dataset.index = items.indexOf(items[i]);
     checkmarkButton.addEventListener("click", doneTodo);
     listItem.appendChild(checkmarkButton);
 
@@ -67,13 +67,15 @@ function renderList(items, itemsList) {
     </div>
     `
     deleteButton.classList.add("delete-button");
-    deleteButton.dataset.index = i;
+    deleteButton.dataset.index = items.indexOf(items[i]);
     deleteButton.onclick = function () {
       const itemIndex = this.dataset.index; // Gets the index of the current item
       const listItem = this.parentNode; // Gets the parent node
       listItem.classList.add("remove-item-annimate");
       setTimeout (function() {
         listItem.parentNode.removeChild(listItem); // Removes the parent node
+        todos.splice(itemIndex, 1); // Removes the deleted todo item
+        renderList(todos, todoList);
       }, 300); // The time for the delay so the delete animation can play out
     };
     
