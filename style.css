@@ -28,63 +28,58 @@
 
   .content {
     display: grid;
-    grid-template-areas: "sidebar content" auto;
     align-items: center;
     justify-content: center;
+    font-family: "indivisible", sans-serif;
+    font-style: normal;
   }
   
-  .sidebar {
-    grid-area: sidebar;
-    height: 100%;
-    width: 250px;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 150px;
+    width: 100%;
     position: fixed;
     left: 0;
     top: 0;
     background-color: white;
     list-style: none;
-  }
-
-  /* General style for the logo */
-  .logo {
-    display: block;
-    margin-bottom: 120px;
-  }
-
-  .logo-image {
-    width: 250px;
-  }
-
-  /* Style for the links in the sidebar */
-  .sidebar-links {
-    list-style: none;
-    position: relative;
-    margin-left: -30px;
-  }
-
-  .list-names {
-    color: var(--dark-text-colour);
     text-decoration: none;
-    display: flex;
-    padding: 5px 0px;
-    margin-left: 10px;
   }
 
-  .list-names:hover {
+  .cool-list-title {
+    font-family: "indivisible", sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin-left: 280px;
+    margin-top: -50px;
+    word-break: break-word;
+  }
+
+  .cool-list-title h2 {
+    color: var(--dark-text-colour);
+    font-size: 30px;
+    margin-left: 100px;
+    position: absolute;
+  }
+
+  .cool-list-title p {
+    color: var(--dark-text-colour);
+    font-size: 30px;
+    margin-left: 420px;
+    position: absolute;
+  }
+
+  .cool-list-title p:hover {
     color: var(--colour-darkerpink);
     transition: 0.3s;
-  }
-
-  /* Style for the h2 All Lists text in the sidebar */
-  .all-lists-header {
-    color: var(--dark-text-colour);
-    text-decoration: none;
-    margin-left: 10px;
   }
 
   .underline {
     display: flex;
     position: relative;
-    margin-left: 10px;
   }
 
   .underline::after {
@@ -105,47 +100,20 @@
     transform-origin: bottom left;
   }
 
-  .logo-icon {
-    display: none;
-    width: 110px;
-  }
-
   form {
     display: flex;
     padding-top: 20px;
   }
-  
-  .btn-create {
-    background: 0;
-    border: 0;
-    padding: 0;
-    margin-left: 10px;
-    color: var(--dark-text-colour);
-    font-weight: bold;
-    font-size: 20px;
-  }
-
-  .new-list {
-    border: 0;
-    color: inherit;
-    border-bottom: 1px solid currentColor;
-    font-size: inherit;
-    outline: none;
-    padding: 0.25em;
-    margin-left: 5px;
-    transition: border-bottom 150ms ease-in;
-    order: 2;
-  }
 
 
   main {
-    grid-area: content;
-    margin-left: 200px;
-    margin-bottom: 100px;
-    font-family: "indivisible", sans-serif;
-    font-weight: 400;
-    font-style: normal;
+    margin-top: 200px;
   }
+
+  .list-title::placeholder {
+    text-align: center;
+ }
+
 
   .list-title {
     font-family: "indivisible", sans-serif;
@@ -153,6 +121,7 @@
     font-style: normal;
     font-size: 70px;
     color: black;
+    text-align: center;
     margin-top: 30px;
     text-decoration: underline;
     align-items: center;
@@ -225,26 +194,12 @@
     border-radius: 5px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3); /* x offset, y offset, blur, spread, color (alpha = transparency) */
     margin-bottom: 0px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 620px repeat(2, 11%); /* repeat(number of columns/rows, the column width we want); */
+    grid-column-gap: 0px;
+    align-items: center;
     transition: all;
-  }
-
-  @keyframes add-new-item-annimation {
-    from {
-      transform: translateX(-10%);
-      opacity: 0;
-    }
-    to {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-  
-  .new-item-annimate {
-    transform-origin: 10% 0;
-    animation: add-new-item-annimation 0.3s linear;
+    word-break: break-word;
   }
 
   @keyframes remove-item-annimation {
@@ -278,10 +233,11 @@
   /* Style for the Incomplete button */
   .incomplete {
     background-color: var(--colour-lightpink);
+    text-decoration: none;
     border: none;
     border-radius: 5px;
     outline: none;
-    font-size: 16px;
+    font-size: 14px;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, opacity 400ms;
   }
@@ -289,6 +245,7 @@
   /* Style for the Incomplete button when hovered over */
   .incomplete:hover {
     background-color: var(--colour-darkpink);
+    text-decoration: none;
     transform: scale(1.15);
     transition: transform 0.3s, opacity 400ms;
   }
@@ -296,6 +253,7 @@
   /* Style for the Complete button */
   .complete {
     background-color: var(--colour-lightpink);
+    text-decoration: none;
     border: none;
     border-radius: 5px;
     outline: none;
@@ -307,54 +265,21 @@
   /* Style for the Complete button when hovered over */
   .complete:hover {
     background-color: var(--colour-darkpink);
+    text-decoration: none;
     transform: scale(1.15);
     transition: transform 0.3s, opacity 400ms;
   }
 
-  button.complete:focus ~ li {
-    background-color: yellow; /* change to the color you want for incomplete items */
+  /* Style for when an item is marked as completed */
+  .done {
+    color: rgb(110, 110, 110);
+    font-style: italic;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--dark-text-colour);
   }
 
-  /* Resizing for mobile screens */
-  @media only screen and (max-width: 600px) {
-    .sidebar {
-      width: 110px;
-    }
-
-    .logo-icon {
-      display: block;
-    }
-
-    .logo-image {
-      display: none;
-    }
-
-    .sidebar-links li a {
-      justify-content: center;
-    }
-
-    .sidebar-links li a p {
-       display: none;
-    }
-
-    .all-lists-header {
-      display: none
-    }
-
-    .sidebar-links li a h3 {
-      display: none
-    }
-    
-    .sidebar-links li a img {
-      margin-right: 0;
-    }
-  }
-
-
-
-
-  /*
-    Screen reader text utility class
+  /* Screen reader text utility class */
   
   .sr-only {
     position: absolute;
@@ -366,4 +291,4 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border-width: 0;
-  } */
+  }
