@@ -1,55 +1,305 @@
-/*
-  CSS File
-*/
-
-/*
- VARIABLES
-*/
 :root {
-  /* Core colours */
-  /* https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
-  --colour-amaranth: #e63946;
-  --colour-peppermint: #f1faee;
-  --colour-aquaisland: #a8dadc;
-  --colour-wedgewood: #457b9d;
-  --colour-cello: #1d3557;
+    /* Core colours /
+    / https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
+    --colour-lightpink: #f09292;
+    --colour-pink: rgb(238, 121, 121);
+    --colour-darkpink: rgb(199, 107, 107);
+    --colour-darkerpink: rgb(150, 66, 66);
+    --colour-lightgray: #d8d8d8;
+    
+    --dark-text-colour: rgb(19, 19, 22);
 
-  /* Header configuration */
-  --header-heading-colour: var(--colour-peppermint);
+    --leftgradient-colour: rgb(255, 221, 221);
+    --rightgradient-colour: rgb(255, 239, 239);
 
-  /* Body configuration */
-  --body-default-colour: var(--colour-cello);
-  --body-background-colour: var(--colour-peppermint);
-}
+    /* Body configuration */
+    --body-background-colour: rgb(255, 177, 177);
+  }
 
-/*
-  PAGE / BODY
-*/
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--body-default-colour);
-  background-color: var(--body-background-colour);
-}
 
-main {
-  min-height: 100vh;
+  body {
+    margin: 0;
+    font-family: "indivisible", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--body-background-colour);
+    color: var(--dark-text-colour);
+  }
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .content {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-family: "indivisible", sans-serif;
+    font-style: normal;
+  }
+  
+  /* Style for the header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 150px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: white;
+    list-style: none;
+    text-decoration: none;
+  }
 
-/*
-  Screen reader text utility class
-*/
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
+  .cool-list-title {
+    font-family: "indivisible", sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin-left: 280px;
+    margin-top: -50px;
+    word-break: break-word;
+  }
+
+  /* Style for the header h2 */
+  .cool-list-title h2 {
+    color: var(--dark-text-colour);
+    font-size: 30px;
+    margin-left: 100px;
+    position: absolute;
+  }
+
+  /* Style for the header p */
+  .cool-list-title p {
+    color: var(--dark-text-colour);
+    font-size: 30px;
+    margin-left: 420px;
+    position: absolute;
+  }
+
+  /* Hover style for the header p */
+  .cool-list-title p:hover {
+    color: var(--colour-darkerpink);
+    transition: 0.3s;
+  }
+
+  /* Style for the underline effect on the header p */
+  .underline {
+    display: flex;
+    position: relative;
+  }
+
+  /* Animation for the underline effect on the header p */
+  .underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--colour-darkerpink);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Style for the todo list form */
+  form {
+    display: flex;
+    padding-top: 20px;
+  }
+
+  /* Style for main, sets position and padding */
+  main {
+    margin-top: 160px;
+    padding-bottom: 40px;
+  }
+
+  /* Style for the list title placeholder, centers the text */
+  .list-title::placeholder {
+    text-align: center;
+ }
+
+ /* Style for the list title */
+  .list-title {
+    font-family: "indivisible", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 70px;
+    color: black;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: underline;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    padding: 10px;
+    border: 0px solid #a5a5a500;
+  }
+
+  /* Changes color of placeholder text before a list name is entered */
+  .list-title::placeholder {
+    color: var(--colour-darkpink);
+  }
+
+  /* Style for the list */
+  .full-list {
+    width: 850px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  /* Style for the todo text */
+  .text-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 200%;
+    border-radius: 5px;
+    border: 1px solid #a5a5a5;
+    font-size: 16px;
+    box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style for the Add button */
+  .add-button {
+    width: 30%;
+    background-color: var(--colour-pink);
+    color: var(--dark-text-colour);
+    border: 1px solid #a5a5a5;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: inset 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hover style for the Add button */
+  .add-button:hover {
+    background-color: var(--colour-darkpink);
+    transition: 0.3s;
+  }
+
+  /* Style for todo-items */
+  main ul.todo-items {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  /* Style for list todo-items */
+  main ul.todo-items li {
+    list-style: none;
+    background: linear-gradient(to right, var(--leftgradient-colour), var(--rightgradient-colour));
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3); /* x offset, y offset, blur, spread, color (alpha = transparency) */
+    margin-bottom: 0px;
+    display: grid;
+    grid-template-columns: 620px repeat(2, 11%); /* repeat(number of columns/rows, the column width we want); */
+    grid-column-gap: 0px;
+    align-items: center;
+    transition: all;
+    word-break: break-word;
+  }
+
+  /* Fade-out animation that plays when an item is removed */
+  @keyframes remove-item-annimation {
+    0% {opacity: 1;}
+    100% {opacity: 0;} 
+  }
+
+  .remove-item-annimate {
+    animation: remove-item-annimation 0.3s linear;
+  }
+
+  /* Style for the delete button, removes background and outline so only the icon appears */
+  .delete-button {
+    background: none;
+    border: none;
+    border-radius: 5px;
+  }
+
+  /* Style for the delete icon */
+  .delete-icon i {
+    color: var(--dark-text-colour);
+    font-size: 20px;
+    transition: transform 0.3s, opacity 400ms;
+  }
+
+  /* Hover style for the delete icon, it increases in size and turns red */
+  .delete-icon i:hover {
+    color: rgb(167, 34, 34);
+    transform: scale(1.3);
+    transition: transform 0.3s, opacity 400ms;
+  }
+
+  /* Style for the incomplete button */
+  .incomplete {
+    background-color: var(--colour-lightpink);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, opacity 400ms;
+  }
+
+  /* Hover style for the incomplete button */
+  .incomplete:hover {
+    background-color: var(--colour-darkpink);
+    text-decoration: none;
+    transform: scale(1.15);
+    transition: transform 0.3s, opacity 400ms;
+  }
+
+  /* Style for the complete button */
+  .complete {
+    background-color: var(--colour-lightpink);
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, opacity 400ms;
+  }
+
+  /* Hover style for the complete button */
+  .complete:hover {
+    background-color: var(--colour-darkpink);
+    text-decoration: none;
+    transform: scale(1.15);
+    transition: transform 0.3s, opacity 400ms;
+  }
+
+  /* Style for when an item is marked as completed */
+  .done {
+    color: rgb(110, 110, 110);
+    font-style: italic;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--dark-text-colour);
+  }
+
+  /* Screen reader text utility class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
